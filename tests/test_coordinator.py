@@ -137,6 +137,8 @@ async def test_replayed_duplicate_and_irrelevant_parts_are_dropped(
         json_part({"eventType": "videoloss", "eventState": "inactive"}),
         DecodedPart(kind=PartKind.BINARY, payload=None, content_type="image/jpeg"),
         json_part(access_payload(5, 12345, serial=3)),  # unknown code: kept
+        json_part(access_payload(3, 121, serial=4, name=None)),  # our own connect
+        json_part(access_payload(3, 122, serial=5, name=None)),  # and disconnect
     ):
         await fake_client.queue.put(part)
     await pump(hass)

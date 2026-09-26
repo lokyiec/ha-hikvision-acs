@@ -148,10 +148,14 @@ against the device's own web UI event log (*Access Control → Event Search*).
 | 3/1024 | Remote unlock (HA button, Hik-Connect) | `remote_access` | ✅ |
 | 5/21 | Door lock opened | `door` | ✅ |
 | 5/22 | Door lock closed, about 3 s after 5/21 | `door` | ✅ |
-| 3/121 | Remote alarm arming: an event subscriber (such as this integration) connected | `system` | ✅ |
-| 3/122 | Remote alarm disarming: an event subscriber disconnected | `system` | ✅ |
+| 3/121 | Remote alarm arming: an event subscriber (such as this integration) connected. Debug log only. | `system` | ✅ |
+| 3/122 | Remote alarm disarming: an event subscriber disconnected. Debug log only. | `system` | ✅ |
 | 3/112 | Unknown | `system` | ❌ |
 | 3/1029 | System/operation event, possibly a configuration change | `system` | ❌ |
+
+The two subscriber codes are bookkeeping that this integration causes itself
+on every connect, so they are logged at DEBUG and not sent to entities, the
+event bus or Activity. Every other code, known or unknown, is.
 
 Unknown codes are never dropped. They arrive with
 `event: unknown_<major>_<minor>`. Their category is `system` for major 3

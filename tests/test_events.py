@@ -114,6 +114,12 @@ def test_codes_confirmed_against_device_log(
     assert (definition.key, definition.category, definition.confirmed) == (key, category, True)
 
 
+def test_only_subscriber_bookkeeping_is_internal() -> None:
+    internal = {code for code, definition in EVENT_CODES.items() if definition.internal}
+    assert internal == {(3, 121), (3, 122)}
+    assert not describe(3, 999).internal
+
+
 def test_both_card_codes_are_confirmed_grants() -> None:
     # The reference device reports card reads as 5/1 and (in older records) 5/38.
     for code in ((5, 1), (5, 38)):

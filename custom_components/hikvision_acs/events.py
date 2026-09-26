@@ -37,12 +37,18 @@ class EventDefinition:
 
     ``confirmed`` is ``True`` only when the meaning has been verified against
     a real capture. Unconfirmed entries are best guesses and say so.
+
+    ``internal`` marks bookkeeping caused by event subscribers themselves,
+    such as this integration connecting to the stream. Such events are
+    logged at DEBUG only and never reach entities, the bus or Activity,
+    where they would appear on every restart or Wi-Fi drop.
     """
 
     key: str
     description: str
     category: EventCategory
     confirmed: bool
+    internal: bool = False
 
 
 # Grow this table from captured samples only. Never promote an entry to
@@ -63,12 +69,14 @@ EVENT_CODES: Final[Mapping[tuple[int, int], EventDefinition]] = {
         description="Remote alarm arming (event subscriber connected)",
         category=EventCategory.SYSTEM,
         confirmed=True,
+        internal=True,
     ),
     (3, 122): EventDefinition(
         key="remote_disarming",
         description="Remote alarm disarming (event subscriber disconnected)",
         category=EventCategory.SYSTEM,
         confirmed=True,
+        internal=True,
     ),
     (3, 1024): EventDefinition(
         key="remote_unlock",
