@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceInfo version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">
+<deviceName>Access Control Device</deviceName>
+<deviceID>00000000-0000-0000-0000-000000000000</deviceID>
+<model>DS-K1T805MBFWX</model>
+<serialNumber>DS-K1T805MBFWX20240101AAWRTEST0001</serialNumber>
+<macAddress>00:00:5e:00:53:01</macAddress>
+<firmwareVersion>V1.9.1</firmwareVersion>
+<firmwareReleasedDate>build 240909</firmwareReleasedDate>
+<deviceType>ACS</deviceType>
+</DeviceInfo>

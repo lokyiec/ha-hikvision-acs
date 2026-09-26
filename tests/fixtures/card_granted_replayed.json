@@ -1,0 +1,29 @@
+{
+  "ipAddress": "192.0.2.10",
+  "portNo": 80,
+  "protocol": "HTTP",
+  "macAddress": "00:00:5e:00:53:01",
+  "dateTime": "2026-07-12T12:57:33+01:00",
+  "activePostCount": 1,
+  "eventType": "AccessControllerEvent",
+  "eventState": "active",
+  "eventDescription": "Access Controller Event",
+  "AccessControllerEvent": {
+    "deviceName": "Access Control Device",
+    "majorEventType": 5,
+    "subEventType": 38,
+    "cardNo": "0000000001",
+    "cardType": 1,
+    "reportChannel": 3,
+    "cardReaderKind": 1,
+    "cardReaderNo": 1,
+    "verifyNo": 166,
+    "name": "Jane Doe",
+    "employeeNoString": "00000001",
+    "serialNo": 5606,
+    "currentVerifyMode": "cardOrFpOrPw",
+    "currentEvent": false,
+    "frontSerialNo": 5605,
+    "hasRecord": false
+  }
+}

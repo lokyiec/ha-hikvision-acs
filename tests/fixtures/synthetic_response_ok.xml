@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResponseStatus version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">
+<requestURL>/ISAPI/AccessControl/RemoteControl/door/1</requestURL>
+<statusCode>1</statusCode>
+<statusString>OK</statusString>
+<subStatusCode>ok</subStatusCode>
+</ResponseStatus>

@@ -1,0 +1,16 @@
+# Local Home Assistant for trying the integration against a real terminal.
+# Start with `make ha`, then open http://localhost:8123.
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:2026.9
+    container_name: ha-hikvision-acs-dev
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./config:/config
+      # The integration is mounted read-only straight from the repo, so a
+      # container restart (`make ha-restart`) picks up code changes.
+      - ../custom_components/hikvision_acs:/config/custom_components/hikvision_acs:ro
+    environment:
+      - TZ=Europe/Warsaw
+    restart: unless-stopped

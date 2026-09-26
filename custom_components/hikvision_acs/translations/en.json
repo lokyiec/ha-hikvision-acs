@@ -1,0 +1,98 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to a Hikvision access terminal",
+        "description": "Use a dedicated low-privilege account if the device supports one; some models only have `admin`. The device locks accounts after a few failed logins, so double-check the password.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "ssl": "Uses an SSL certificate",
+          "verify_ssl": "Verify SSL certificate",
+          "username": "Username",
+          "password": "Password"
+        },
+        "data_description": {
+          "host": "IP address or hostname of the terminal.",
+          "port": "443 for HTTPS, 80 for plain HTTP.",
+          "ssl": "Connect over HTTPS (recommended).",
+          "verify_ssl": "These devices ship self-signed certificates; enable only if you installed a trusted one."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate",
+        "description": "The terminal at {host} rejected the stored credentials.",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unexpected_response": "The device answered, but not like a Hikvision ISAPI terminal.",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "Device is already configured",
+      "reauth_successful": "Re-authentication was successful",
+      "wrong_device": "These credentials belong to a different device."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "access_granted": {
+        "name": "Access granted"
+      }
+    },
+    "button": {
+      "open_door": {
+        "name": "Open door"
+      }
+    },
+    "sensor": {
+      "last_access_event": {
+        "name": "Last access event"
+      }
+    },
+    "event": {
+      "access": {
+        "name": "Access",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "card_access_granted": "Authenticated via card",
+              "pin_access_granted": "Authenticated via PIN",
+              "remote_unlock": "Remote unlock",
+              "unknown": "Unknown event"
+            }
+          }
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "cannot_connect": {
+      "message": "Cannot connect to the Hikvision terminal."
+    },
+    "invalid_auth": {
+      "message": "The Hikvision terminal rejected the credentials."
+    },
+    "unexpected_response": {
+      "message": "The Hikvision terminal returned an unexpected response."
+    },
+    "door_permission_denied": {
+      "message": "The configured account is not allowed to open the door."
+    },
+    "door_open_failed": {
+      "message": "Failed to open the door."
+    }
+  },
+  "issues": {
+    "stream_permission_denied": {
+      "title": "Hikvision account cannot read events",
+      "description": "The account used for {title} can log in but was refused access to the event stream (`/ISAPI/Event/notification/alertStream`). Grant it event/notification permission on the device, then reload the integration."
+    }
+  }
+}

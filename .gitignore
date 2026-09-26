@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local Home Assistant dev instance (only the config template is tracked)
+dev/config/*
+!dev/config/configuration.yaml
