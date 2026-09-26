@@ -1,0 +1,12 @@
+{
+  "domain": "hikvision_acs",
+  "name": "Hikvision Access Control",
+  "codeowners": ["@lokyiec"],
+  "config_flow": true,
+  "documentation": "https://github.com/lokyiec/ha-hikvision-acs",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/lokyiec/ha-hikvision-acs/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

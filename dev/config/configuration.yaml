@@ -1,0 +1,8 @@
+# Minimal development configuration.
+default_config:
+
+logger:
+  default: warning
+  logs:
+    # DEBUG shows reconnects, replayed/ignored events and unconfirmed codes.
+    custom_components.hikvision_acs: debug
