@@ -185,6 +185,9 @@ class HikvisionEventStream:
                 "Ignoring replayed event %s/%s serial=%s", event.major, event.minor, event.serial_no
             )
             return
+        if event.definition.internal:
+            _LOGGER.debug("Subscriber bookkeeping event %s/%s", event.major, event.minor)
+            return
         if self._dedup.is_duplicate(event):
             _LOGGER.debug("Ignoring duplicate event serial=%s", event.serial_no)
             return
